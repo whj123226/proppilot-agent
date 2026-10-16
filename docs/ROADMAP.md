@@ -16,8 +16,8 @@
 - [x] MIT许可证与贡献说明。
 - [x] 样例与运行数据分离，提交范围排除私密配置。
 - [x] 真实网页截图、架构说明及演示脚本。
-- [ ] 公开仓库及远程CI验证。
-- [ ] 从新克隆目录复现启动。
+- [x] [公开仓库](https://github.com/whj123226/proppilot-agent)及[首次远程CI验证](https://github.com/whj123226/proppilot-agent/actions/runs/38867466999)。
+- [x] 从公开仓库新克隆目录复现fixture启动与确认写入。
 
 ## 后续优先级
 

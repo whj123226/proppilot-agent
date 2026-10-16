@@ -1,5 +1,8 @@
 # PropPilot｜可恢复、需确认的物业服务 Agent
 
+[![Regression tests](https://github.com/whj123226/proppilot-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/whj123226/proppilot-agent/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Property service agent with human approval, recoverable workflows and idempotent MySQL order creation.
 
 面向物业咨询、欠费查询与报修登记的个人工程作品。重点不是让模型自由执行，而是把模型的字段提取能力放进可校验、需确认、可恢复的业务流程。
@@ -63,6 +66,13 @@ Chroma负责知识向量，与关系数据库职责分开。旧教学脚本仍�
 这是个人作品演示，不接真实客户物业、派单或缴费。默认fixture模式使用固定样例，不调用模型；live模式调用真实Qwen和已有混合检索/重排。
 
 ## 本地启动 Windows 与 PyCharm
+
+先克隆源码并进入项目目录：
+
+```sh
+git clone https://github.com/whj123226/proppilot-agent.git
+cd proppilot-agent
+```
 
 1. 使用Python 3.11；新克隆目录先执行 `py -3.11 -m venv .venv-langchain`，解释器选择 `.venv-langchain\Scripts\python.exe`。虚拟环境不随源码发布。
 2. 安装已固定版本的依赖：

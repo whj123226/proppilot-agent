@@ -1,5 +1,13 @@
 # 本次验证记录
 
+## GitHub首次发布（2026-10-16）
+
+- 公开地址：https://github.com/whj123226/proppilot-agent ，主分支main，MIT许可证。
+- 首个代码提交d77b1d7；[首轮CI](https://github.com/whj123226/proppilot-agent/actions/runs/38867466999)执行成功，使用GitHub Ubuntu运行器、Python3.11及MySQL8.4服务，无模型调用。
+- 从公开地址新克隆，未携带.env及本机运行数据；复用本次独立3.11环境，并单独注入本机测试MySQL配置，验证fixture首页、健康检查、静态脚本、访客、待确认前无工单及确认后一个工单，全部通过。测试库已清理，没有把凭证写入新克隆或公开仓库。
+- 本记录及README更新属于发布文档收尾；后续提交状态查看仓库Actions。
+- 发布的是源码与演示证据，未提供公网服务；Docker、HTTPS与公网体验仍未验收。
+
 ## 首次公开发布准备（2026-10-16）
 
 - 新建独立Python3.11.17虚拟环境，从requirements-web.txt安装121个解析依赖，未复用旧环境的site-packages。
