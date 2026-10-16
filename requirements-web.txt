@@ -1,0 +1,15 @@
+fastapi==0.143.0
+uvicorn==0.53.0
+pydantic==2.13.5
+httpx==0.28.1
+python-dotenv==1.2.3
+PyMySQL[rsa]==1.1.2
+aiomysql==0.3.2
+langgraph==1.2.11
+langgraph-checkpoint-mysql==3.0.0
+langgraph-checkpoint-sqlite==3.1.1
+langchain-core==1.6.3
+langchain-qwq==0.3.5
+chromadb==1.5.9
+jieba==0.42.1
+rank-bm25==0.2.2

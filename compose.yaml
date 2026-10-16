@@ -1,0 +1,42 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: proppilot_showcase
+      MYSQL_USER: proppilot
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+    restart: unless-stopped
+  app:
+    build: .
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: proppilot
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD}
+      MYSQL_DATABASE: proppilot_showcase
+      APP_MODE: ${APP_MODE:-fixture}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      GLOBAL_DAILY_QUOTA: ${GLOBAL_DAILY_QUOTA:-300}
+      SESSION_DAILY_QUOTA: ${SESSION_DAILY_QUOTA:-40}
+      DASHSCOPE_API_KEY: ${DASHSCOPE_API_KEY:-}
+      RERANK_URL: ${RERANK_URL:-}
+      CHAT_MODEL: ${CHAT_MODEL:-qwen-plus}
+      MODEL_BASE_URL: ${MODEL_BASE_URL:-https://dashscope.aliyuncs.com/compatible-mode/v1}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - app-data:/app/data
+    restart: unless-stopped
+volumes:
+  mysql-data:
+  app-data:

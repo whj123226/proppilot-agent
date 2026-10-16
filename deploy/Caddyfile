@@ -1,0 +1,6 @@
+# Replace demo.example.com with your actual domain before public deployment.
+# App stays bound to loopback. Run this proxy on the same host.
+demo.example.com {
+    encode gzip
+    reverse_proxy 127.0.0.1:8000
+}

@@ -1,0 +1,11 @@
+.venv*
+.idea
+.env*
+__pycache__
+*.pyc
+logs
+data/*.sqlite*
+data/chroma*
+data/vector_index.json
+model
+.git
